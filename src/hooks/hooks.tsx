@@ -22,3 +22,27 @@ export function useWindowSize() {
   }, []);
   return windowSize;
 }
+
+export function useScrollOffset() {
+  const [scrollOffset, setScrollOffset] = useState({
+    x: undefined,
+    y: undefined,
+  })
+
+  useEffect(() => {
+    function handleScrollOffset() {
+      setScrollOffset({
+        x: window.scrollX as any,
+        y: window.scrollY as any,
+      })
+    }
+
+    window.addEventListener("scroll", handleScrollOffset);
+
+    handleScrollOffset()
+
+    return () => window.removeEventListener("scroll", handleScrollOffset)
+  }, [])
+
+  return scrollOffset
+}

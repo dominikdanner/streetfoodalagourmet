@@ -8,9 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "spin-pizza": "spin 30s linear infinite"
+
+      },
       colors: {
         "primary": "#683C21",
-        "secondary": "#DFE0DF",
+        "secondary": "#EDEDED",
         "highlight": "#FF914D",
       },
       backgroundImage: {
