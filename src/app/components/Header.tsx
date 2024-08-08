@@ -48,9 +48,9 @@ const SmarthphoneNavigationMenu = () => {
                 <div className="fixed transition-all right-0 top-20 bg-white w-full h-full animate-fade-in">
                     <div className="flex flex-col justify-center items-center gap-10 mt-20">
                         <SmarthphoneHeaderMenuItem href={"/"} name={"Home"} />
-                        <SmarthphoneHeaderMenuItem href={"/contact"} name={"Kontakt"} />
                         <SmarthphoneHeaderMenuItem href={"/team"} name={"Team"} />
                         <SmarthphoneHeaderMenuItem href={"/galerie"} name={"Galerie"} />
+                        <SmarthphoneHeaderMenuItem href={"/contact"} name={"Kontakt"} />
                     </div>
                 </div>
             ) : null}
@@ -82,15 +82,15 @@ const DesktopNavigation = () => {
 
     return (
         <div className="fixed w-full z-50">
-            <header className={scrollOffset.y! < 1 ? "flex justify-between mx-40 items-center h-28 transition-all" : "flex justify-between px-40 items-center h-32 shadow-2xl  bg-white transition-all duration-500 ease-in-out"}>
+            <header className={scrollOffset.y! < 1 ? "flex justify-between mx-40 items-center h-28 transition-all" : "flex justify-between px-40 items-center h-32 shadow-md  bg-white transition-all duration-200 ease-in-out"}>
                 <div className="cursor-pointer" onClick={() => router.push("/")}>
                     <Image src={Logo} width={200} height={200} alt="20" />
                 </div>
                 <div className="flex gap-10">
                     <DesktopHeaderMenuItem href={"/"} name="Home" />
-                    <DesktopHeaderMenuItem href={"/contact"} name="Kontakt" />
                     <DesktopHeaderMenuItem href={"/team"} name="Team" />
                     <DesktopHeaderMenuItem href={"/galerie"} name="Galerie" />
+                    <DesktopHeaderMenuItem href={"/contact"} name="Kontakt" />
                 </div>
                 <Button>Jetzt Buchen</Button>
             </header>

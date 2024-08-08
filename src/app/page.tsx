@@ -23,6 +23,7 @@ export default function Home() {
 
   return (
     <div className="relative overflow-hidden">
+
       {/** Background Placement */}
       <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[600px] -top-[900px] lg:-left-[470px] lg:-top-[670px] -z-50"></div>
       <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[560px] -top-[870px] lg:-left-[600px] lg:-top-[560px] -z-50"></div>
@@ -33,14 +34,14 @@ export default function Home() {
       <Image src={KrautSVG} alt="Garlic" className="absolute scale-150 top-[550px] left-[250px] -z-50"></Image>
       <Image src={Kraut2SVG} alt="Garlic" className="absolute scale-100 top-[750px] left-[500px] -z-50"></Image>
       <Image src={PanSVG} alt="Garlic" className="absolute scale-150 rotate-90 top-[1400px] left-[100px] lg:top-[1400px] lg:left-[200px] -z-50"></Image>
-      <div>
-        <Header></Header>
-        <LandingSection />
-        <AboutUsSection />
-        <QualitiesSection />
-        <TeamSection />
-        <Footer />
-      </div>
+
+      {/** Page layout Begin */}
+      <Header></Header>
+      <LandingSection />
+      <AboutUsSection />
+      <QualitiesSection />
+      <TeamSection />
+      <Footer />
     </div>
   );
 }
