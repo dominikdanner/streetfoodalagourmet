@@ -1,10 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary-color: #683C21;
   --highlight-color: #FF914D;
-  --secondary-color: #DFE0DF;
+  --secondary-color: black;
 }
 
+* {
+  font-family: "Kantumruy Pro", sans-serif;
+}
+
+.text-kaushan-script {
+  font-family: "Kaushan Script", cursive;
+  font-style: normal;
+}
+
+/* Customize the scrollbar width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #cccccc;
+}
+
+::-webkit-scrollbar-thumb {
+    /* Customize the scrollbar thumb */
+    background: var(--highlight-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff914d7a;
+}
