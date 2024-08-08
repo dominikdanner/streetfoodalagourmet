@@ -18,6 +18,7 @@ import { useRef } from "react"
 import { Headline } from "./components/Headline"
 import { KidIcon, LocationIcon, RelievedIcon, VegetarianFoodIcon } from "./components/Icons"
 import Link from "next/link"
+import { useWindowSize } from "./components/Hooks"
 
 export default function Home() {
 
@@ -47,19 +48,21 @@ export default function Home() {
 }
 
 const LandingSection = () => {
+  const windowSize = useWindowSize()
+
   return (
     <div className="flex justify-center h-screen pt-16">
       <div className="flex xl:m-24 lg:m-20 md:m-16 sm:m-10 m-8 container flex-wrap-reverse">
         <div className="flex flex-col justify-center gap-5 lg:gap-3 p-5 xl:px-36 lg:px-26 md:px-10 min-w-96 lg:h-full w-full lg:w-1/2">
-          <h1 className="font-bold text-4xl lg:text-6xl">Entdecken Sie den Geschmack von Streetfood</h1>
+          <h1 className="font-bold text-4xl lg:text-6xl">Entdecke den Geschmack von Streetfood</h1>
           <p className="">Unsere Philosophie: Kochen mit Liebe und den besten lokalen Zutaten</p>
             <div className="mt-5 flex gap-4">
               <Button>Jetzt Buchen</Button>
               <InvertedButton>Zur Galerie</InvertedButton>
             </div>
         </div>
-        <div className="justify-center items-center lg:w-1/2 w-full min-w-96 h-1/2 lg:h-full hidden lg:flex">
-          <Image src={Pizza} width={1000} height={1000} alt="Pizza" className="rotate-12 scale-125"/>
+        <div className="flex justify-center items-center lg:w-1/2 w-full min-w-96 h-1/2 lg:h-full">
+          <Image src={Pizza} width={windowSize.width! <= 1050 ? 350 : 1000} height={windowSize.width! <= 3050 ? 400 : 1000} alt="Pizza" className="rotate-12 scale-125"/>
         </div>
       </div>
     </div>
