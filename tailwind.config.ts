@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  mode: "jit",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,8 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fade: {
+          '0%': { opacity: "0%", transform: "translateX(100px)" },
+          '100%': { opacity: "100%", transform: "translateX(0px)" },
+        },
+      },
       animation: {
-        "spin-pizza": "spin 30s linear infinite"
+        "fade-in": "fade 0.2s ease-in-out"
 
       },
       colors: {
@@ -17,11 +24,7 @@ const config: Config = {
         "secondary": "#EDEDED",
         "highlight": "#FF914D",
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+
     },
   },
   plugins: [],

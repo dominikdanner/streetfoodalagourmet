@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="flex justify-center bg-highlight mt-20">
+        <div className="flex justify-center bg-highlight mt-20 z-50">
             <div className="flex flex-col justify-center container w-full px-14">
                 <div className="flex justify-between my-10 flex-wrap gap-10 sm:gap-0">
                     <div className="w-1/3 min-w-40">
