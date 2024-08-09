@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 
 export function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
@@ -25,8 +25,8 @@ export function useWindowSize() {
 
 export function useScrollOffset() {
   const [scrollOffset, setScrollOffset] = useState({
-    x: undefined,
-    y: undefined,
+    x: 0,
+    y: 0,
   })
 
   useEffect(() => {

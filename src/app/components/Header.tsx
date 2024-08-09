@@ -2,10 +2,11 @@ import Image from "next/image"
 import Logo from "../../../public/Streetfood.png"
 import { useRouter } from "next/navigation"
 import { useScrollOffset, useWindowSize } from "@/app/components/Hooks"
-import { Button } from "./Buttons"
+import { Button, IconButton } from "./Buttons"
 import Link from "next/link"
 import { Url } from "next/dist/shared/lib/router/router"
 import { Fragment, useState } from "react"
+import { BookIcon } from "./Icons"
 
 export default function Header() {
   const windowSize = useWindowSize()
@@ -36,6 +37,7 @@ const SmartphoneNavigation = () => {
 
 const SmarthphoneNavigationMenu = () => {
     const [isNavigationMenuExpanded, setNavigationMenuExpanded] = useState(false)
+    const router = useRouter()
 
     return (
         <Fragment>
@@ -82,7 +84,7 @@ const DesktopNavigation = () => {
 
     return (
         <div className="fixed w-full z-50">
-            <header className={scrollOffset.y! < 1 ? "flex justify-between mx-40 items-center h-28 transition-all" : "flex justify-between px-40 items-center h-32 shadow-md  bg-white transition-all duration-200 ease-in-out"}>
+            <header className={scrollOffset.y! < 1 ? "flex justify-between mx-40 items-center h-28 transition-all" : "flex justify-between px-40 items-center h-32 shadow-sm  bg-white transition-all duration-200 ease-in-out"}>
                 <div className="cursor-pointer" onClick={() => router.push("/")}>
                     <Image src={Logo} width={200} height={200} alt="20" />
                 </div>
@@ -92,7 +94,9 @@ const DesktopNavigation = () => {
                     <DesktopHeaderMenuItem href={"/galerie"} name="Galerie" />
                     <DesktopHeaderMenuItem href={"/contact"} name="Kontakt" />
                 </div>
-                <Button>Jetzt Buchen</Button>
+                <IconButton Icon={<BookIcon />} onClick={() => router.push("tel:+43 660 8740280")}>
+                    Jetzt Buchen
+                </IconButton>
             </header>
         </div>
     )

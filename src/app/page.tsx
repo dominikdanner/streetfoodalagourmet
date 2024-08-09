@@ -4,8 +4,10 @@ import Image from "next/image"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Pizza from "../../public/Pizza.png"
-import GaleriePhoto1 from "../../public/GaleryPreview.jpg"
-import GaleriePhoto2 from "../../public/Galerie_2.jpg"
+import GaleriePhoto1 from "../../public/GaleriePreview/Preview_1.jpg"
+import GaleriePhoto2 from "../../public/GaleriePreview/Preview_2.jpg"
+import GaleriePhoto3 from "../../public/GaleriePreview/Preview_3.jpg"
+import GaleriePhoto4 from "../../public/GaleriePreview/Preview_4.jpg"
 import OnionSVG from "../../public/Onion.svg"
 import GarlicSVG from "../../public/Garlic.svg"
 import KrautSVG from "../../public/Kraut.svg"
@@ -34,10 +36,12 @@ export default function Home() {
       <Image src={GarlicSVG} alt="Garlic" className="absolute right-[800px] top-[700px] -rotate-45 scale-125"></Image>
       <Image src={KrautSVG} alt="Garlic" className="absolute scale-150 top-[550px] left-[250px] -z-50"></Image>
       <Image src={Kraut2SVG} alt="Garlic" className="absolute scale-100 top-[750px] left-[500px] -z-50"></Image>
-      <Image src={PanSVG} alt="Garlic" className="absolute scale-150 rotate-90 top-[1400px] left-[100px] lg:top-[1400px] lg:left-[200px] -z-50"></Image>
+      <Image src={PanSVG} alt="Pan" className="absolute scale-125 top-[1400px] left-[100px] lg:top-[1100px] lg:left-[200px] -z-50"></Image>
+      <Image src={KrautSVG} alt="Garlic" className="absolute scale-150 rotate-180 top-[1900px] left-[400px] -z-50"></Image>
+      <Image src={KrautSVG} alt="Garlic" className="absolute scale-150 top-[1400px] right-[300px] -z-50"></Image>
 
       {/** Page layout Begin */}
-      <Header></Header>
+      <Header />
       <LandingSection />
       <AboutUsSection />
       <QualitiesSection />
@@ -46,6 +50,8 @@ export default function Home() {
     </div>
   );
 }
+
+
 
 const LandingSection = () => {
   const windowSize = useWindowSize()
@@ -57,8 +63,12 @@ const LandingSection = () => {
           <h1 className="font-bold text-4xl lg:text-6xl">Entdecke den Geschmack von Streetfood</h1>
           <p className="">Unsere Philosophie: Kochen mit Liebe und den besten lokalen Zutaten</p>
             <div className="mt-5 flex gap-4">
-              <Button>Jetzt Buchen</Button>
-              <InvertedButton>Zur Galerie</InvertedButton>
+              <Link href={"/galerie"}>
+                <InvertedButton>Zur Galerie</InvertedButton>
+              </Link>
+              <Link href={"/contact"}>
+                <Button>Kontaktiere uns</Button>
+              </Link>
             </div>
         </div>
         <div className="flex justify-center items-center lg:w-1/2 w-full min-w-96 h-1/2 lg:h-full">
@@ -71,29 +81,31 @@ const LandingSection = () => {
 
 
 const AboutUsSection = () => {
-  const Galerie = useRef<HTMLDivElement>(null);
-
+  const AboutUsRef = useRef(null);
+  
   return (
-    <div className="flex flex-col items-center justify-center z-50">
-      <div className="flex container flex-wrap">
-        <div className="flex flex-wrap w-full lg:w-1/2">
-          <div ref={Galerie} className="grid grid-cols-2 min-w-96 w-full px-5 py-5">
-            <div className="flex justify-end items-end mr-3 mb-3">
-              <Image src={GaleriePhoto1} height={180} width={0} alt="Galerie Photo 1"/>
+    <div className="flex flex-col items-center justify-center z-50 bg-gray-300 lg:p-10 bg-opacity-25">
+      <div className={`flex container flex-wrap`}>
+        <div className="flex justify-end items-center flex-wrap relative w-full lg:w-1/2">
+          <Link href={"/galerie"}>
+            <div className={`grid grid-cols-2 min-w-96 w-full px-5 py-5 transition-all hover:opacity-90 hover:scale-105 cursor-pointer`}>
+              <div className="flex justify-end items-end mr-3 mb-3 hover:scale-105 transition-all">
+                <Image src={GaleriePhoto1} alt="Galerie Photo 1" className="w-72 h-60 object-cover"/>
+              </div>
+              <div className="flex justify-start items-end ml-3 mb-3 hover:scale-105 transition-all">
+                <Image src={GaleriePhoto2} alt="Galerie Photo 2" className="w-56 h-fit object-contain" />
+              </div>
+              <div className="flex justify-end items-start mt-3 mr-3 hover:scale-105 transition-all">
+                <Image src={GaleriePhoto3}  alt="Galerie Photo 3" className="w-44 h-fit object-contain" />
+              </div>
+              <div className="flex justify-start items-start mt-3 ml-3 hover:scale-105 transition-all">
+                <Image src={GaleriePhoto4} alt="Galerie Photo 4" className="w-72 h-fit object-contain" />
+              </div>
             </div>
-            <div className="flex justify-start items-end ml-3 mb-3">
-              <Image src={GaleriePhoto2} height={130} width={0} alt="Galerie Photo 2"/>
-            </div>
-            <div className="flex justify-end items-start mt-3 mr-3">
-              <Image src={GaleriePhoto1} height={130} width={0} alt="Galerie Photo 3"/>
-            </div>
-            <div className="flex justify-start items-start mt-3 ml-3">
-              <Image src={GaleriePhoto2} height={180} width={0} alt="Galerie Photo 4"/>
-            </div>
-          </div>
+          </Link>
         </div>
-        <div className="min-w-96 w-full lg:w-1/2">
-          <section className="p-5">
+        <div className="flex justify-center items-center min-w-96 w-full lg:w-1/2">
+          <section ref={AboutUsRef} className="p-5">
             <div className="flex justify-center items-center mt-5 lg:justify-start lg:mt-0">
               <Headline>Über uns</Headline>
             </div>
@@ -127,23 +139,23 @@ const AboutUsSection = () => {
 
 const QualitiesSection = () => {
   return (
-    <div className="flex flex-col justify-center items-center mt-32">
-        <Headline>Unsere Qualitäten</Headline>
-        <div className="flex container justify-center items-center flex-wrap mt-14 gap-8 px-5">
-          <QualityCard title={"Junges Team"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
-            <KidIcon height={50} width={50}></KidIcon>
-          </QualityCard>
-          <QualityCard title={"Qualitätives Essen"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
-            <VegetarianFoodIcon height={50} width={50}></VegetarianFoodIcon>
-          </QualityCard>
-          <QualityCard title={"Freie Wahl"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
-            <RelievedIcon height={50} width={50}></RelievedIcon>
-          </QualityCard>
-          <QualityCard title={"Lokalität"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
-            <LocationIcon height={50} width={50}></LocationIcon>
-          </QualityCard>
-        </div>
-    </div>
+      <div className="flex flex-col justify-center items-center mt-20">
+          <Headline>Unsere Qualitäten</Headline>
+          <div className="flex container justify-center items-center flex-wrap mt-14 gap-8 lg:px-5">
+            <QualityCard title={"Junges Team"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
+              <KidIcon height={50} width={50}></KidIcon>
+            </QualityCard>
+            <QualityCard title={"Qualitätives Essen"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
+              <VegetarianFoodIcon height={50} width={50}></VegetarianFoodIcon>
+            </QualityCard>
+            <QualityCard title={"Freie Wahl"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
+              <RelievedIcon height={50} width={50}></RelievedIcon>
+            </QualityCard>
+            <QualityCard title={"Lokalität"} description={"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"}>
+              <LocationIcon height={50} width={50}></LocationIcon>
+            </QualityCard>
+          </div>
+      </div>
   )
 }
 
@@ -154,7 +166,7 @@ interface QualityCardProps extends React.PropsWithChildren {
 
 const QualityCard: React.FC<QualityCardProps> = ({ description, title, children}) => {
   return (
-    <div className="flex flex-col gap-2 p-8 rounded-lg hover:scale-105 transition-all cursor-pointer shadow-2xl bg-white min-w-40 max-w-full lg:max-w-80">
+    <div className="flex flex-col gap-2 p-8 lg:rounded-lg hover:scale-105 transition-all cursor-pointer shadow-xl bg-white min-w-40 max-w-full lg:max-w-80">
       {children}
       <h1 className="text-2xl font-semibold">{title}</h1>
       <p>{description}</p>
@@ -166,18 +178,18 @@ const TeamSection = () => {
   return (
     <div className="flex h-auto justify-center mt-32">
       <div className="flex relative h-max flex-col items-center container gap-3">
-        <Image src={Kraut2SVG} alt="Garlic" className="absolute bottom-[-150px] left-[-120px] -rotate-90"></Image>
+        <Image src={Kraut2SVG} alt="Garlic" className="absolute bottom-[-150px] left-[-120px] -rotate-90 -z-50 md:z-50"></Image>
         <Image src={Kleeblatt} alt="Garlic" className="absolute top-[-200px] right-[-200px] lg:top-[-90px] lg:right-[-80px] opacity-10 rotate-12"></Image>
 
         <Headline>Unser Team</Headline>
-        <div className="flex flex-col justify-center items-center lg:shadow-2xl rounded-lg lg:mt-5 lg:bg-white">
+        <div className="flex flex-col justify-center items-center lg:shadow-2xl rounded-lg mt-10 lg:bg-white">
           <div className="flex justify-around w-full flex-wrap gap-5 lg:gap-5 px-5 ">
             <TeamMemberCard fullname={"Kevin Frick"} role={"Meister Koch"} />
             <TeamMemberCard fullname={"Raphael Mayer"} role={"Enthusiast"}/>
             <TeamMemberCard fullname={"Lukas Mayer"} role={"Pizza Profi"}/>
             <TeamMemberCard fullname={"Dominik Danner"} role={"IT Admin"}/>
           </div>
-          <div className="my-10 lg:my-5">
+          <div className="my-5 lg:my-5">
           <Button><Link href={"/team"} className="w-full h-full">Zum gesamten Team</Link></Button>
           </div>
         </div>

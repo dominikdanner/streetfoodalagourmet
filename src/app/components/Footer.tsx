@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
-        <div className="flex justify-center bg-highlight mt-20 z-50">
-            <div className="flex flex-col justify-center container w-full px-14">
+        <div className="flex justify-center bg-highlight mt-20 w-full">
+            <div className="flex flex-col justify-center container w-full px-5 lg:px-14">
                 <div className="flex justify-between my-10 flex-wrap gap-10 sm:gap-0">
                     <div className="w-1/3 min-w-40">
                         <h1 className="text-xl font-semibold">Dokumente</h1>
@@ -15,7 +15,7 @@ export default function Footer() {
                         <ul>
                             <li>Name: Kevin Frick</li>
                             <li>Tel: 0660 8740280</li>
-                            <li>Email: dominik.rene.danner@gmail.com</li>
+                            <li>Email: dominik.rene</li>
                             <li>Addresse: Pregarten</li>
                         </ul>
                     </div>
