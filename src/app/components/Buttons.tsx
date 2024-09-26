@@ -1,9 +1,6 @@
-
 interface ButtonProps extends React.PropsWithChildren, React.HTMLAttributes<HTMLButtonElement> {
 
 }
-
-
 
 export const Button: React.FC<ButtonProps> = (props) => {
     return (

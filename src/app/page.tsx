@@ -27,10 +27,6 @@ export default function Home() {
   return (
     <div className="relative overflow-hidden">
 
-      {/** Background Placement */}
-      <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[600px] -top-[900px] lg:-left-[470px] lg:-top-[670px] -z-50"></div>
-      <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[560px] -top-[870px] lg:-left-[600px] lg:-top-[560px] -z-50"></div>
-      <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[640px] -top-[830px] lg:-left-[490px] lg:-top-[730px] -z-50"></div>
       <Image src={LeafSVG} alt="Onion" className="absolute opacity-10 right-[700px] top-[100px] -rotate-90"></Image>
       <Image src={GarlicSVG} alt="Garlic" className="absolute right-[250px] top-[320px] lg:right-[100px] lg:top-[600px] scale-125"></Image>
       <Image src={GarlicSVG} alt="Garlic" className="absolute right-[800px] top-[700px] -rotate-45 scale-125"></Image>
@@ -86,7 +82,7 @@ const AboutUsSection = () => {
   return (
     <div className="flex flex-col items-center justify-center z-50 bg-gray-300 lg:p-10 bg-opacity-25">
       <div className={`flex container flex-wrap`}>
-        <div className="flex justify-end items-center flex-wrap relative w-full lg:w-1/2">
+        <div className="flex justify-center lg:justify-end items-center flex-wrap relative w-full lg:w-1/2">
           <Link href={"/galerie"}>
             <div className={`grid grid-cols-2 min-w-96 w-full px-5 py-5 transition-all hover:opacity-90 hover:scale-105 cursor-pointer`}>
               <div className="flex justify-end items-end mr-3 mb-3 hover:scale-105 transition-all">

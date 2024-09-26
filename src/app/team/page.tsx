@@ -2,27 +2,32 @@
 import Header from "../components/Header";
 import { Headline } from "../components/Headline";
 import Footer from "../components/Footer";
+import Image from "next/image";
+import React from "react";
+
+
+import KrautSVG from "../../../public/Kraut.svg"
+import LeafSVG from "../../../public/Leaf1.svg"
 
 export default function Team() {
     return (
-        <div className="flex flex-col items-center w-full">
-
-            {/** Background Placement */}
-            <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[600px] -top-[900px] lg:-left-[470px] lg:-top-[670px] -z-50"></div>
-            <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[560px] -top-[870px] lg:-left-[600px] lg:-top-[560px] -z-50"></div>
-            <div className="absolute w-[1100px] h-[1100px] rounded-full border border-gray-300 -left-[640px] -top-[830px] lg:-left-[490px] lg:-top-[730px] -z-50"></div>
+        <React.Fragment>
 
             <Header></Header>
             <TeamPictureSection />
             <Footer />
-        </div>
+
+        </React.Fragment>
     )
 }
 
 const TeamPictureSection = () => {
     return (
         <div className="flex flex-col justify-center items-center container pt-40">
-            <div className="flex flex-col items-center w-full">
+            <div className="relative flex flex-col items-center w-full">
+
+                <Image src={KrautSVG} alt="Garlic" className="absolute scale-150 top-[-70px] right-[-70px] z-10"></Image>
+                <Image src={LeafSVG} alt="Onion" className="absolute opacity-10 -rotate-90 left-[-100px] -bottom-[120px] z-10"></Image>
                 <Headline>Unser Team</Headline>
                 <div className="flex justify-center items-center w-full mt-10 bg-gray-200 h-[600px] rounded-lg text-xl">Team Foto</div>
             </div>
@@ -31,14 +36,14 @@ const TeamPictureSection = () => {
                 <Headline>Alle Teammitglieder</Headline>
 
                 <div className="flex mt-10 flex-wrap justify-center items-center gap-5">
-                    <TeamMemberCard name={"Mayer Raphael"} role={"Gründer"}></TeamMemberCard>
-                    <TeamMemberCard name={"Kevin Frick"} role={"Gründer & Koch"}></TeamMemberCard>
-                    <TeamMemberCard name={"Dominik Danner"} role={"IT Administrator"}></TeamMemberCard>
+                    <TeamMemberCard name={"Mayer Raphael"} role={"Founder"}></TeamMemberCard>
+                    <TeamMemberCard name={"Kevin Frick"} role={"Koch"}></TeamMemberCard>
+                    <TeamMemberCard name={"Thomas Mayerhofer"} role={"Koch"}></TeamMemberCard>
                     <TeamMemberCard name={"Lukas Mayer"} role={"Pizza Experte"}></TeamMemberCard>
-                    <TeamMemberCard name={"Mayer Raphael"} role={"NEgga"}></TeamMemberCard>
-                    <TeamMemberCard name={"Mayer Raphael"} role={"NEgga"}></TeamMemberCard>
-                    <TeamMemberCard name={"Mayer Raphael"} role={"NEgga"}></TeamMemberCard>
-                    <TeamMemberCard name={"Mayer Raphael"} role={"NEgga"}></TeamMemberCard>
+                    <TeamMemberCard name={"Mayer Raphael"} role={"undefined"}></TeamMemberCard>
+                    <TeamMemberCard name={"Mayer Raphael"} role={"undefined"}></TeamMemberCard>
+                    <TeamMemberCard name={"Mayer Raphael"} role={"undefined"}></TeamMemberCard>
+                    <TeamMemberCard name={"Mayer Raphael"} role={"undefined"}></TeamMemberCard>
                 </div>
             </div>
         </div>

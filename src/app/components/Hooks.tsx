@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
