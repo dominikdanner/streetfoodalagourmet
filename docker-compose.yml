@@ -28,7 +28,7 @@ services:
       start_period: 30s
 
   directus:
-    image: directus/directus:11.1.0
+    image: directus/directus:latest
     ports:
       - 8055:8055
     volumes:
@@ -45,9 +45,9 @@ services:
       DB_CLIENT: "pg"
       DB_HOST: "database"
       DB_PORT: "5432"
-      DB_DATABASE: "directus"
-      DB_USER: "directus"
-      DB_PASSWORD: "directus"
+      DB_DATABASE: ${DIRECTUS_DB}
+      DB_USER: ${SQL_ROOT_USER}
+      DB_PASSWORD: ${SQL_ROOT_PASSWORD}
 
       CACHE_ENABLED: "true"
       CACHE_AUTO_PURGE: "true"
