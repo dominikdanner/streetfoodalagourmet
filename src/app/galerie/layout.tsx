@@ -14,14 +14,10 @@ export default function TeamOverviewLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <div className="relative overflow-hidden flex flex-col items-center w-full">
+    <div className="relative overflow-hidden flex flex-col items-center w-full">
+      {/** Background Placement */}
 
-            {/** Background Placement */}
-
-            {children}
-
-        </div>
+      {children}
+    </div>
   );
 }
-
-
