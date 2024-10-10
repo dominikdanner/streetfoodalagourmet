@@ -1,3 +1,4 @@
+import { DirectusImage } from "@/api/album";
 import { useEffect, useState } from "react";
 
 export function useWindowSize() {
@@ -45,4 +46,37 @@ export function useScrollOffset() {
   }, []);
 
   return scrollOffset;
+}
+
+export function useGenerateGrid(images: DirectusImage[] | undefined) {
+  const [imageGrid, setImageGrid] = useState<DirectusImage[][]>();
+
+  useEffect(() => {
+    if (images != undefined) {
+      const imagePerColumn = Math.round(images!.length / 4);
+
+      const imageGrid: DirectusImage[][] = [];
+      let currentColumn = 0;
+      let columnGrid: DirectusImage[] = [];
+      images?.map((image, idx) => {
+        columnGrid.push(image);
+
+        if (columnGrid.length == imagePerColumn) {
+          if (currentColumn == 3) {
+            images.splice(0, idx + 1);
+            images.map((image) => columnGrid.push(image));
+            imageGrid.push(columnGrid);
+          } else {
+            currentColumn++;
+            imageGrid.push(columnGrid);
+            columnGrid = [];
+          }
+        }
+      });
+
+      setImageGrid(imageGrid);
+    }
+  }, [images]);
+
+  return imageGrid;
 }

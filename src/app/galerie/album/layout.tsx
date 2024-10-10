@@ -1,7 +1,6 @@
-import Header from "@/app/components/Header";
+import { useQuery } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,6 +15,7 @@ export default function TeamOverviewLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <Suspense>
       <div className="relative overflow-hidden flex flex-col items-center w-full">

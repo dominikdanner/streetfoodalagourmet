@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Logo from "../../../public/Streetfood.png";
+import Logo from "../../public/Streetfood.png";
 import { useRouter } from "next/navigation";
-import { useScrollOffset, useWindowSize } from "@/app/components/Hooks";
+import { useScrollOffset, useWindowSize } from "../util/Hooks";
 import { IconButton } from "./Buttons";
 import Link from "next/link";
 import { Url } from "next/dist/shared/lib/router/router";

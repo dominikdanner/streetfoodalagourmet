@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Pizza from "../../public/Pizza.png";
 import GaleriePhoto1 from "../../public/GaleriePreview/Preview_1.jpg";
 import GaleriePhoto2 from "../../public/GaleriePreview/Preview_2.jpg";
@@ -15,20 +15,19 @@ import Kraut2SVG from "../../public/Kraut2.svg";
 import PanSVG from "../../public/Pan.svg";
 import Kleeblatt from "../../public/Kleblatt.svg";
 import LeafSVG from "../../public/Leaf1.svg";
-import { Button, InvertedButton } from "./components/Buttons";
-import { useEffect, useRef } from "react";
-import { Headline } from "./components/Headline";
+import { Button, InvertedButton } from "../components/Buttons";
+import { useRef } from "react";
+import { Headline } from "../components/Headline";
 import {
   KidIcon,
   LocationIcon,
   RelievedIcon,
   VegetarianFoodIcon,
-} from "./components/Icons";
+} from "../components/Icons";
 import Link from "next/link";
-import { useWindowSize } from "./components/Hooks";
+import { useWindowSize } from "../util/Hooks";
 
 export default function Home() {
-  console.log(process.env.SERVER_URL);
 
   return (
     <div className="relative overflow-hidden">
@@ -109,8 +108,8 @@ const LandingSection = () => {
         <div className="flex justify-center items-center lg:w-1/2 w-full min-w-96 h-1/2 lg:h-full">
           <Image
             src={Pizza}
-            width={windowSize.width! <= 1050 ? 350 : 1000}
-            height={windowSize.width! <= 3050 ? 400 : 1000}
+            width={windowSize.width! <= 1050 ? 500 : 1000}
+            height={windowSize.width! <= 3050 ? 500 : 1000}
             alt="Pizza"
             className="rotate-12 scale-125"
           />

@@ -1,12 +1,11 @@
 "use client";
-import { Button } from "../components/Buttons";
-import Header from "../components/Header";
-import { Headline } from "../components/Headline";
+import { Button } from "../../components/Buttons";
+import Header from "../../components/Header";
+import { Headline } from "../../components/Headline";
 import Image from "next/image";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 import React from "react";
-import { useRouter } from "next/navigation";
-import { getAllAlbums, SERVER_URL } from "../api/album";
+import { getAllAlbums, SERVER_URL } from "../../api/album";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Galerie() {
@@ -20,14 +19,15 @@ export default function Galerie() {
 }
 
 const GalerieContent = () => {
-  const query = useQuery({ queryKey: ["albums"], queryFn: getAllAlbums });
+  const { data: albums } = useQuery({ queryKey: ["albums"], queryFn: getAllAlbums });
 
   return (
     <div className="flex flex-col justify-center items-center pt-40 container">
+
       <Headline>Galerie</Headline>
 
       <div className="mt-10 z-30">
-        {query.data?.map((album, idx) => (
+        {albums?.map((album, idx) => (
           <GalerieEntry
             id={album.id}
             key={idx}
@@ -49,14 +49,13 @@ interface GalerieEntryProps {
   orientation: "left" | "right";
   title: String;
   description: String;
-  date: Date;
+  date: String;
   location: String;
   thumbnail: String;
 }
 
 const GalerieEntry: React.FC<GalerieEntryProps> = (props) => {
-  //@todo fix date formatting
-  const date = new Date(props.date);
+  const date = new Date(props.date.toString());
 
   return (
     <div className="shadow-md bg-white mt-10 lg:rounded-lg">
@@ -64,7 +63,7 @@ const GalerieEntry: React.FC<GalerieEntryProps> = (props) => {
         <div className="flex flex-wrap-reverse w-full">
           <div className="flex flex-col gap-3 w-full lg:w-1/3 p-8 min-w-80 h-auto min-h-min">
             <p className="text-base text-gray-400">
-              {date.getDay() + "." + date.getMonth() + "." + date.getFullYear()}
+              {date.toLocaleDateString()}
               , {props.location}
             </p>
             <h1 className="text-kaushan-script text-3xl">{props.title}</h1>
@@ -83,8 +82,8 @@ const GalerieEntry: React.FC<GalerieEntryProps> = (props) => {
               src={SERVER_URL + "/assets/" + props.thumbnail}
               alt="Galerie Photo"
               className="w-full object-cover max-h-[490px] lg:rounded-e-lg"
-              width={100000}
-              height={10000000}
+              width={6000}
+              height={4000}
             ></Image>
           </div>
         </div>
@@ -102,7 +101,7 @@ const GalerieEntry: React.FC<GalerieEntryProps> = (props) => {
 
           <div className="flex flex-col gap-3 w-full lg:w-1/3 p-8 min-w-80">
             <p className="text-base text-gray-400">
-              {date.getDay() + "." + date.getMonth() + "." + date.getFullYear()}
+              {date.toLocaleDateString()}
               , {props.location}
             </p>
             <h1 className="text-kaushan-script text-3xl">{props.title}</h1>

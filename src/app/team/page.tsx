@@ -1,7 +1,7 @@
 "use client";
-import Header from "../components/Header";
-import { Headline } from "../components/Headline";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import { Headline } from "../../components/Headline";
+import Footer from "../../components/Footer";
 import Image from "next/image";
 import React from "react";
 
