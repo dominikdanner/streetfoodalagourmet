@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <div className="flex justify-center bg-highlight mt-20 w-full">
@@ -6,7 +8,9 @@ export default function Footer() {
           <div className="w-1/3 min-w-40">
             <h1 className="text-xl font-semibold">Dokumente</h1>
             <ul className="">
-              <li>Privacy Policies</li>
+              <li>
+                <Link href={"/impressum"}>Impressum</Link>
+              </li>
               <li>Terms & Conditions</li>
             </ul>
           </div>
@@ -27,8 +31,7 @@ export default function Footer() {
           </p>
           <ul className="flex gap-5 min-w-44">
             <li>Home</li>
-            <li className="border-black border-l border-r px-2">Cookies</li>
-            <li>Help</li>
+            <li className="border-black border-l px-2">Help</li>
           </ul>
         </div>
       </div>

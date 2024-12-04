@@ -28,7 +28,6 @@ import Link from "next/link";
 import { useWindowSize } from "../util/Hooks";
 
 export default function Home() {
-
   return (
     <div className="relative overflow-hidden">
       <Image
@@ -225,7 +224,7 @@ const QualitiesSection = () => {
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
           }
         >
-          <KidIcon height={50} width={50}></KidIcon>
+          <KidIcon className="text-highlight" height={50} width={50}></KidIcon>
         </QualityCard>
         <QualityCard
           title={"Qualitätives Essen"}
@@ -233,7 +232,11 @@ const QualitiesSection = () => {
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
           }
         >
-          <VegetarianFoodIcon height={50} width={50}></VegetarianFoodIcon>
+          <VegetarianFoodIcon
+            height={50}
+            width={50}
+            className="text-highlight"
+          ></VegetarianFoodIcon>
         </QualityCard>
         <QualityCard
           title={"Freie Wahl"}
@@ -241,7 +244,11 @@ const QualitiesSection = () => {
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
           }
         >
-          <RelievedIcon height={50} width={50}></RelievedIcon>
+          <RelievedIcon
+            height={50}
+            width={50}
+            className="text-highlight"
+          ></RelievedIcon>
         </QualityCard>
         <QualityCard
           title={"Lokalität"}
@@ -249,7 +256,11 @@ const QualitiesSection = () => {
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
           }
         >
-          <LocationIcon height={50} width={50}></LocationIcon>
+          <LocationIcon
+            height={50}
+            width={50}
+            className="text-highlight"
+          ></LocationIcon>
         </QualityCard>
       </div>
     </div>

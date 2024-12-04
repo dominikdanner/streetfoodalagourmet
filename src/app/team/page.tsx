@@ -42,35 +42,22 @@ const TeamPictureSection = () => {
         <Headline>Alle Teammitglieder</Headline>
 
         <div className="flex mt-10 flex-wrap justify-center items-center gap-5">
+          <TeamMemberCard name={"Kevin Frick"} role={"Role"}></TeamMemberCard>
+          <TeamMemberCard name={"Raphael Mayer"} role={"Role"}></TeamMemberCard>
+          <TeamMemberCard name={"Lukas Mayer"} role={"Role"}></TeamMemberCard>
+          <TeamMemberCard name={"Laurenz Mayer"} role={"Role"}></TeamMemberCard>
+          <TeamMemberCard name={"Florian"} role={"Role"}></TeamMemberCard>
+          <TeamMemberCard name={"Kevin"} role={"Role"}></TeamMemberCard>
+          <TeamMemberCard name={"Leonie"} role={"Role"}></TeamMemberCard>
           <TeamMemberCard
-            name={"Mayer Raphael"}
-            role={"Founder"}
-          ></TeamMemberCard>
-          <TeamMemberCard name={"Kevin Frick"} role={"Koch"}></TeamMemberCard>
-          <TeamMemberCard
-            name={"Thomas Mayerhofer"}
-            role={"Koch"}
-          ></TeamMemberCard>
-          <TeamMemberCard
-            name={"Lukas Mayer"}
-            role={"Pizza Experte"}
+            name={"Nadine Frühwirth"}
+            role={"Role"}
           ></TeamMemberCard>
           <TeamMemberCard
-            name={"Mayer Raphael"}
-            role={"undefined"}
+            name={"Dominik Danner"}
+            role={"Role"}
           ></TeamMemberCard>
-          <TeamMemberCard
-            name={"Mayer Raphael"}
-            role={"undefined"}
-          ></TeamMemberCard>
-          <TeamMemberCard
-            name={"Mayer Raphael"}
-            role={"undefined"}
-          ></TeamMemberCard>
-          <TeamMemberCard
-            name={"Mayer Raphael"}
-            role={"undefined"}
-          ></TeamMemberCard>
+          <TeamMemberCard name={"Peter"} role={"Role"}></TeamMemberCard>
         </div>
       </div>
     </div>

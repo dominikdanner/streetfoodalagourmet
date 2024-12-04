@@ -50,12 +50,12 @@ export const getAlbumFolder = async (
 
 export interface DirectusImage {
   id: string;
-
-  // Not part of the initial Response
-  src: string;
   title: string;
   width: number;
   height: number;
+
+  // Not part of the initial Response
+  src: string;
 }
 
 export const getAllAlbumImages = async (
