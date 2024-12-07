@@ -4,11 +4,11 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kontakt | Streetfood a la Gourmet",
+  title: "Impressum | Streetfood a la Gourmet",
   description: "Streetfood Verein based in Pregarten",
 };
 
-export default function ContactLayout({
+export default function ImpressumLayoutView({
   children,
 }: Readonly<{
   children: React.ReactNode;

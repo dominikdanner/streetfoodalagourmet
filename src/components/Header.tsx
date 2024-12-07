@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../../public/Streetfood.png";
+import Logo from "../../public/logo.png";
 import { useRouter } from "next/navigation";
 import { useScrollOffset, useWindowSize } from "../util/Hooks";
 import { IconButton } from "./Buttons";
@@ -42,7 +42,7 @@ const SmartphoneNavigation = () => {
           }
         >
           <div className="cursor-pointer" onClick={() => router.push("/")}>
-            <Image src={Logo} width={130} height={130} alt="20" />
+            <Image src={Logo} width={70} height={70} alt="20" />
           </div>
 
           <SmarthphoneNavigationMenu />
@@ -134,7 +134,7 @@ const DesktopNavigation = () => {
           }
         >
           <div className="cursor-pointer" onClick={() => router.push("/")}>
-            <Image src={Logo} width={200} height={200} alt="20" />
+            <Image src={Logo} width={110} height={110} alt="20" />
           </div>
 
           <div className="flex gap-10">

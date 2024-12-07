@@ -19,11 +19,13 @@ export default function Galerie() {
 }
 
 const GalerieContent = () => {
-  const { data: albums } = useQuery({ queryKey: ["albums"], queryFn: getAllAlbums });
+  const { data: albums } = useQuery({
+    queryKey: ["albums"],
+    queryFn: getAllAlbums,
+  });
 
   return (
     <div className="flex flex-col justify-center items-center pt-40 container">
-
       <Headline>Galerie</Headline>
 
       <div className="mt-10 z-30">
@@ -63,8 +65,7 @@ const GalerieEntry: React.FC<GalerieEntryProps> = (props) => {
         <div className="flex flex-wrap-reverse w-full">
           <div className="flex flex-col gap-3 w-full lg:w-1/3 p-8 min-w-80 h-auto min-h-min">
             <p className="text-base text-gray-400">
-              {date.toLocaleDateString()}
-              , {props.location}
+              {date.toLocaleDateString()}, {props.location}
             </p>
             <h1 className="text-kaushan-script text-3xl">{props.title}</h1>
             <p className="mb-14">{props.description}</p>
@@ -101,8 +102,7 @@ const GalerieEntry: React.FC<GalerieEntryProps> = (props) => {
 
           <div className="flex flex-col gap-3 w-full lg:w-1/3 p-8 min-w-80">
             <p className="text-base text-gray-400">
-              {date.toLocaleDateString()}
-              , {props.location}
+              {date.toLocaleDateString()}, {props.location}
             </p>
             <h1 className="text-kaushan-script text-3xl">{props.title}</h1>
             <p className="mb-14">{props.description}</p>

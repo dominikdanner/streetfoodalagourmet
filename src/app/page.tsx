@@ -90,7 +90,7 @@ const LandingSection = () => {
       <div className="flex xl:m-24 lg:m-20 md:m-16 sm:m-10 m-8 container flex-wrap-reverse">
         <div className="flex flex-col justify-center gap-5 lg:gap-3 p-5 xl:px-36 lg:px-26 md:px-10 min-w-96 lg:h-full w-full lg:w-1/2">
           <h1 className="font-bold text-4xl lg:text-6xl">
-            Entdecke den Geschmack von Streetfood
+            Entdecke den Geschmack der Welt
           </h1>
           <p className="">
             Unsere Philosophie: Kochen mit Liebe und den besten lokalen Zutaten
@@ -170,16 +170,18 @@ const AboutUsSection = () => {
             </h2>
             <div className="flex flex-col gap-4 mt-5">
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Accusantium officiis cupiditate ipsum doloribus praesentium,
-                provident quae aliquid incidunt nihil magni debitis labore odit
-                esse aperiam.
+                Wir sind Streetfood à la Gourmet, ein Kochverein, der seit 2021
+                die Vielfalt der Kulinarik feiert. Mit zehn motivierten
+                Mitgliedern verbinden wir die Aromen der Welt mit kreativem
+                Streetfood-Charme und Gourmetkunst. Für uns ist Essen mehr als
+                Genuss – es ist Leidenschaft und verbindet Kulturen!
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
-                numquam aut dolorum dignissimos deserunt facere ut ex, nam,
-                iusto quae tempora iste minus accusamus possimus distinctio
-                dolor ad nihil cumque?
+                Unser Team setzt sich aus zehn motivierten, jungen Mitgliedern
+                zusammen, die alle eine gemeinsame Leidenschaft teilen: Essen.
+                Jeder von uns bringt einzigartige Fähigkeiten und kulinarische
+                Ideen ein, was uns ermöglicht, immer neue, kreative Gerichte zu
+                kreieren.
               </p>
             </div>
             <div className="flex mt-10 flex-wrap gap-2 lg:gap-0">
@@ -221,15 +223,15 @@ const QualitiesSection = () => {
         <QualityCard
           title={"Junges Team"}
           description={
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
+            "Ein junges, kreatives Team, das globale Aromen mit Leidenschaft vereint."
           }
         >
           <KidIcon className="text-highlight" height={50} width={50}></KidIcon>
         </QualityCard>
         <QualityCard
-          title={"Qualitätives Essen"}
+          title={"Qualitätive Zutaten"}
           description={
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
+            "Hochwertige Zutaten, kreative Zubereitung – für einzigartigen Geschmack und Genuss."
           }
         >
           <VegetarianFoodIcon
@@ -239,9 +241,9 @@ const QualitiesSection = () => {
           ></VegetarianFoodIcon>
         </QualityCard>
         <QualityCard
-          title={"Freie Wahl"}
+          title={"Teamgeist"}
           description={
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
+            "Wir verwenden frische, lokale Zutaten für nachhaltiges Geschmackserlebnisse."
           }
         >
           <RelievedIcon
@@ -253,7 +255,7 @@ const QualitiesSection = () => {
         <QualityCard
           title={"Lokalität"}
           description={
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo numquam aut dolorum dignissimos deserunt facere"
+            "Wir verwenden frische, lokale Zutaten für nachhaltiges Geschmackserlebnisse."
           }
         >
           <LocationIcon
@@ -278,7 +280,7 @@ const QualityCard: React.FC<QualityCardProps> = ({
   children,
 }) => {
   return (
-    <div className="flex flex-col gap-2 p-8 lg:rounded-lg hover:scale-105 transition-all cursor-pointer shadow-xl bg-white min-w-40 max-w-full lg:max-w-80">
+    <div className="flex flex-col gap-2 p-8 lg:rounded-lg md:hover:scale-105 transition-all cursor-pointer shadow-xl bg-white min-w-40 max-w-full lg:max-w-80">
       {children}
       <h1 className="text-2xl font-semibold">{title}</h1>
       <p>{description}</p>

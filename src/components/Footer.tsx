@@ -17,10 +17,10 @@ export default function Footer() {
           <div className="w-1/3 min-w-40">
             <h1 className="text-xl font-semibold">Kontakt</h1>
             <ul>
-              <li>Name: Kevin Frick</li>
+              <li>Name: Dominik Danner</li>
               <li>Tel: 0660 8740280</li>
-              <li>Email: dominik.rene</li>
-              <li>Addresse: Pregarten</li>
+              <li>Email: dominik.rene.danner@gmail.com</li>
+              <li>Addresse: Bockaudorf 18, 4240 Freistadt</li>
             </ul>
           </div>
         </div>

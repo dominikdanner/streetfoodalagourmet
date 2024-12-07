@@ -2,14 +2,12 @@
 import React from "react";
 import Header from "../../components/Header";
 import { Headline } from "@/components/Headline";
-import Footer from "@/components/Footer";
 
-export default function Contact() {
+export default function Impressum() {
   return (
     <React.Fragment>
       <Header></Header>
       <ContactCard />
-      <Footer />
     </React.Fragment>
   );
 }
@@ -17,7 +15,7 @@ export default function Contact() {
 const ContactCard = () => {
   return (
     <div className="flex flex-col justify-center items-center pt-40 container">
-      <Headline>Kontakt</Headline>
+      <Headline>Impressum</Headline>
     </div>
   );
 };

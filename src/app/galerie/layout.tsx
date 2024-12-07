@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Streetfood Verein based in Pregarten",
 };
 
-export default function TeamOverviewLayout({
+export default function GalerieLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
