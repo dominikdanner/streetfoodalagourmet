@@ -306,10 +306,10 @@ const TeamSection = () => {
         <Headline>Unser Team</Headline>
         <div className="flex flex-col justify-center items-center lg:shadow-2xl rounded-lg mt-10 lg:bg-white">
           <div className="flex justify-around w-full flex-wrap gap-5 lg:gap-5 px-5 ">
-            <TeamMemberCard fullname={"Kevin Frick"} role={"Meister Koch"} />
-            <TeamMemberCard fullname={"Raphael Mayer"} role={"Enthusiast"} />
-            <TeamMemberCard fullname={"Lukas Mayer"} role={"Pizza Profi"} />
-            <TeamMemberCard fullname={"Dominik Danner"} role={"IT Admin"} />
+            <TeamMemberCard fullname={"Raphael Mayer"} role={"Gründer"} />
+            <TeamMemberCard fullname={"Kevin Frick"} role={"Mitglied"} />
+            <TeamMemberCard fullname={"Lukas Mayer"} role={"Mitglied"} />
+            <TeamMemberCard fullname={"Laurenz Mayer"} role={"Mitglied"} />
           </div>
           <div className="my-5 lg:my-5">
             <Button>
