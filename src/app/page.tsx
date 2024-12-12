@@ -189,7 +189,7 @@ const AboutUsSection = () => {
                 <div className="h-full min-w-3 bg-highlight"></div>
                 <div className="flex items-center p-5 gap-6">
                   <h1 className="text-7xl font-semibold text-highlight ml-2">
-                    10
+                    13
                   </h1>
                   <p className="text-gray-400 font-semibold p-6">
                     Motivierte Teammitglieder
@@ -200,7 +200,7 @@ const AboutUsSection = () => {
                 <div className="h-full min-w-3 bg-highlight"></div>
                 <div className="flex items-center p-5 gap-6">
                   <h1 className="text-7xl font-semibold text-highlight ml-2">
-                    6
+                    4
                   </h1>
                   <p className="text-gray-400 font-semibold p-6">
                     Veranstaltungen kulinarisch betreut
@@ -241,9 +241,9 @@ const QualitiesSection = () => {
           ></VegetarianFoodIcon>
         </QualityCard>
         <QualityCard
-          title={"Teamgeist"}
+          title={"Kreativität"}
           description={
-            "Wir verwenden frische, lokale Zutaten für nachhaltiges Geschmackserlebnisse."
+            "Wir sind offen für kreative Ideen und neue kulinarische Inspirationen."
           }
         >
           <RelievedIcon

@@ -134,7 +134,7 @@ const DesktopNavigation = () => {
           }
         >
           <div className="cursor-pointer" onClick={() => router.push("/")}>
-            <Image src={Logo} width={110} height={110} alt="20" />
+            <Image src={Logo} width={100} height={100} alt="20" />
           </div>
 
           <div className="flex gap-10">

@@ -6,12 +6,19 @@ export default function Footer() {
       <div className="flex flex-col justify-center container w-full px-5 lg:px-14">
         <div className="flex justify-between my-10 flex-wrap gap-10 sm:gap-0">
           <div className="w-1/3 min-w-40">
-            <h1 className="text-xl font-semibold">Dokumente</h1>
+            <h1 className="text-xl font-semibold">Dokumente & Links</h1>
             <ul className="">
-              <li>
+              <li className="underline">
                 <Link href={"/impressum"}>Impressum</Link>
               </li>
-              <li>Terms & Conditions</li>
+              <li className="underline">
+                <Link
+                  href={"https://www.instagram.com/streetfood_a_la_gourmet/"}
+                  target="_blank"
+                >
+                  Instagram
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="w-1/3 min-w-40">
