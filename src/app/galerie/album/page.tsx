@@ -2,16 +2,13 @@
 import Header from "@/components/Header";
 import { Headline } from "@/components/Headline";
 import { useSearchParams } from "next/navigation";
-import React, {
-  FC,
-  useState,
-} from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { useQuery } from "@tanstack/react-query";
 import {
   DirectusFolder,
-  DirectusImage ,
+  DirectusImage,
   getAlbum,
   getAlbumFolder,
   getAllAlbumImages,
@@ -22,11 +19,9 @@ import { useGenerateGrid } from "@/util/Hooks";
 export default function Album() {
   return (
     <React.Fragment>
-
       <Header />
       <ImageGalerieContainer />
       <Footer />
-
     </React.Fragment>
   );
 }
@@ -78,7 +73,7 @@ const ImageGalerieContainer: FC<ImageGalerieContainerProps> = () => {
 };
 
 interface ImageGridProps {
-  folder: DirectusFolder
+  folder: DirectusFolder;
 }
 
 const ImageGrid: FC<ImageGridProps> = ({ folder }) => {
@@ -92,27 +87,27 @@ const ImageGrid: FC<ImageGridProps> = ({ folder }) => {
     },
   });
 
-  const imageGrid = useGenerateGrid(images)
+  const imageGrid = useGenerateGrid(images);
 
   return (
-      <div className="mt-10 grid grid-cols-1 grid-rows-1 gap-4 items-start md:grid-cols-2 md:gap-1 my-5 xl:grid-cols-4">
-        {/** Display generated Image Grid */}
-        {imageGrid?.map((column, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col w-full gap-2 px-1 min-w-96 xl:min-w-60"
-          >
-            {column.map((image, idx) => (
-              <ImageGridItem key={idx} image={image} />
-            ))}
-          </div>
-        ))}
-      </div>
-  )
-}
+    <div className="mt-10 grid grid-cols-1 grid-rows-1 gap-4 items-start md:grid-cols-2 md:gap-1 my-5 xl:grid-cols-4">
+      {/** Display generated Image Grid */}
+      {imageGrid?.map((column, idx) => (
+        <div
+          key={idx}
+          className="flex flex-col w-full gap-2 px-1 min-w-96 xl:min-w-60"
+        >
+          {column.map((image, idx) => (
+            <ImageGridItem key={idx} image={image} />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 interface ImageGridItemProps {
-  image: DirectusImage
+  image: DirectusImage;
 }
 
 const ImageGridItem: FC<ImageGridItemProps> = ({ image }) => {

@@ -37,9 +37,9 @@ const VerticalKeyValuePair: FC<KeyValuePair> = ({ _key, value }) => {
 
 const ImpressumContent = () => {
   return (
-    <div className="flex flex-col justify-center items-center pt-40 container p-44">
+    <div className="flex flex-col justify-center pt-40 items-center container p-2 md:p-24 lg:p-44">
       <Headline>Impressum</Headline>
-      <div className="w-full h-full flex-col">
+      <div className="w-full h-full flex-col mt-10">
         <HorizontalKeyValuePair
           _key={"Vereinsname:"}
           value={"Streetfood a la Gourmet"}
