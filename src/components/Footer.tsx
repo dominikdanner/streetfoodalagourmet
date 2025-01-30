@@ -24,10 +24,8 @@ export default function Footer() {
           <div className="w-1/3 min-w-40">
             <h1 className="text-xl font-semibold">Kontakt</h1>
             <ul>
-              <li>Name: Dominik Danner</li>
+              <li>Name: Kevin Frick</li>
               <li>Tel: 0660 8740280</li>
-              <li>Email: dominik.rene.danner@gmail.com</li>
-              <li>Addresse: Bockaudorf 18, 4240 Freistadt</li>
             </ul>
           </div>
         </div>

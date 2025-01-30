@@ -115,6 +115,7 @@ const ImageGridItem: FC<ImageGridItemProps> = ({ image }) => {
     <div className="group relative w-full h-fit object-contain cursor-pointer">
       <Image
         src={image.src as string}
+        quality={process.env.IMAGE_QUALITY ? parseInt(process.env.IMAGE_QUALITY) : undefined}
         width={image.width}
         height={image.height}
         alt={image.title as string}
