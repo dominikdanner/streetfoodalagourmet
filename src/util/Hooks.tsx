@@ -49,33 +49,27 @@ export function useScrollOffset() {
 }
 
 export function useGenerateGrid(images: DirectusImage[] | undefined) {
-  const [imageGrid, setImageGrid] = useState<DirectusImage[][]>();
+  const [imageGrid, setImageGrid] = useState<DirectusImage[][]>([]);
 
   useEffect(() => {
-    if (images != undefined) {
-      const imagePerColumn = Math.round(images!.length / 4);
+    if (!images || images.length === 0) return;
 
-      const imageGrid: DirectusImage[][] = [];
-      let currentColumn = 0;
-      let columnGrid: DirectusImage[] = [];
-      images?.map((image, idx) => {
-        columnGrid.push(image);
+    const columns: DirectusImage[][] = [[], [], [], []];
+    const columnHeights = [0, 0, 0, 0];
 
-        if (columnGrid.length == imagePerColumn) {
-          if (currentColumn == 3) {
-            images.splice(0, idx + 1);
-            images.map((image) => columnGrid.push(image));
-            imageGrid.push(columnGrid);
-          } else {
-            currentColumn++;
-            imageGrid.push(columnGrid);
-            columnGrid = [];
-          }
-        }
-      });
+    // Sort images by height (descending) to distribute larger images first
+    const sortedImages = [...images].sort((a, b) => b.height - a.height);
 
-      setImageGrid(imageGrid);
+    for (const image of sortedImages) {
+      // Find the column with the smallest total height
+      const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+      
+      // Add image to that column
+      columns[shortestColumnIndex].push(image);
+      columnHeights[shortestColumnIndex] += image.height;
     }
+
+    setImageGrid(columns);
   }, [images]);
 
   return imageGrid;
