@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 import React from "react";
 import { getAllAlbums, SERVER_URL } from "../../api/album";
 import { useQuery } from "@tanstack/react-query";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 export default function Galerie() {
   return (
@@ -19,7 +20,7 @@ export default function Galerie() {
 }
 
 const GalerieContent = () => {
-  const { data: albums } = useQuery({
+  const { data: albums, isLoading: isAlbumsLoading } = useQuery({
     queryKey: ["albums"],
     queryFn: getAllAlbums,
   });
@@ -29,6 +30,8 @@ const GalerieContent = () => {
       <Headline>Galerie</Headline>
 
       <div className="mt-10 z-30">
+        <LoadingScreen enabled={isAlbumsLoading} />
+
         {albums?.map((album, idx) => (
           <GalerieEntry
             id={album.id}

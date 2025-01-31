@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import { Headline } from "@/components/Headline";
 import { useSearchParams } from "next/navigation";
-import React, { FC, useState } from "react";
+import React, { FC, Fragment, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { useQuery } from "@tanstack/react-query";
@@ -14,6 +14,7 @@ import {
   getAllAlbumImages,
 } from "@/api/album";
 import { useGenerateGrid } from "@/util/Hooks";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 // Top Level Component of album page
 export default function Album() {
@@ -79,7 +80,7 @@ interface ImageGridProps {
 const ImageGrid: FC<ImageGridProps> = ({ folder }) => {
   const folderId = folder?.folder_id;
 
-  const { data: images } = useQuery({
+  const { data: images, isLoading: isImagesLoading } = useQuery({
     enabled: !!folderId,
     queryKey: ["album_images"],
     queryFn: () => {
@@ -90,19 +91,23 @@ const ImageGrid: FC<ImageGridProps> = ({ folder }) => {
   const imageGrid = useGenerateGrid(images);
 
   return (
-    <div className="mt-10 grid grid-cols-1 grid-rows-1 gap-4 items-start md:grid-cols-2 md:gap-1 my-5 xl:grid-cols-4">
-      {/** Display generated Image Grid */}
-      {imageGrid?.map((column, idx) => (
-        <div
-          key={idx}
-          className="flex flex-col w-full gap-2 px-1 min-w-96 xl:min-w-60"
-        >
-          {column.map((image, idx) => (
-            <ImageGridItem key={idx} image={image} />
-          ))}
-        </div>
-      ))}
-    </div>
+    <Fragment>
+      <LoadingScreen enabled={isImagesLoading} />
+
+      <div className="mt-10 grid grid-cols-1 grid-rows-1 gap-4 items-start md:grid-cols-2 md:gap-1 my-5 xl:grid-cols-4">
+        {/** Display generated Image Grid */}
+        {imageGrid?.map((column, idx) => (
+          <div
+            key={idx}
+            className="flex flex-col w-full gap-2 px-1 min-w-96 xl:min-w-60"
+          >
+            {column.map((image, idx) => (
+              <ImageGridItem key={idx} image={image} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </Fragment>
   );
 };
 
