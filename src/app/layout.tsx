@@ -22,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.GTAG_ID as string}/>
     </html>
   );
 }

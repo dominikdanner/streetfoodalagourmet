@@ -30,8 +30,6 @@ export default function Album() {
 interface ImageGalerieContainerProps extends React.PropsWithChildren {}
 
 const ImageGalerieContainer: FC<ImageGalerieContainerProps> = () => {
-  const [isBigViewExpanded, setBigViewExpanded] = useState(false);
-
   const id = useSearchParams().get("id");
   const { data: folder } = useQuery({
     queryKey: ["album_folder"],
@@ -51,22 +49,6 @@ const ImageGalerieContainer: FC<ImageGalerieContainerProps> = () => {
 
   return (
     <div className="flex flex-col justify-center items-center pt-40 container bg-transparent">
-      {isBigViewExpanded ? (
-        <div className="fixed w-screen h-screen bg-black bg-opacity-30 z-50 top-0">
-          <div className="fixed w-2/3 h-2/3 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg z-50">
-            <div className="flex justify-end items-center p-10">
-              <div
-                className="absolute flex flex-col justify-center items-center w-20 h-20 cursor-pointer"
-                onClick={() => setBigViewExpanded(false)}
-              >
-                <div className="w-10 h-1 bg-black rounded-lg rotate-45 translate-y-1"></div>
-                <div className="w-10 h-1 bg-black rounded-lg -rotate-45"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
-
       <Headline>{album?.title}</Headline>
       <ImageGrid folder={folder!} />
     </div>
@@ -94,12 +76,12 @@ const ImageGrid: FC<ImageGridProps> = ({ folder }) => {
     <Fragment>
       <LoadingScreen enabled={isImagesLoading} />
 
-      <div className="mt-10 grid grid-cols-1 grid-rows-1 gap-4 items-start md:grid-cols-2 md:gap-1 my-5 xl:grid-cols-4">
-        {/** Display generated Image Grid */}
+      <div className="mt-16 grid grid-cols-1 grid-rows-1 items-start md:grid-cols-2 my-5 xl:grid-cols-4">
+        {/** Outputs generated Image Grid */}
         {imageGrid?.map((column, idx) => (
           <div
             key={idx}
-            className="flex flex-col w-full gap-2 px-1 min-w-96 xl:min-w-60"
+            className="flex flex-col w-full min-w-96 xl:min-w-60"
           >
             {column.map((image, idx) => (
               <ImageGridItem key={idx} image={image} />
@@ -117,13 +99,14 @@ interface ImageGridItemProps {
 
 const ImageGridItem: FC<ImageGridItemProps> = ({ image }) => {
   return (
-    <div className="group relative w-full h-fit object-contain cursor-pointer">
+    <div className="group relative cursor-pointer m-1">
       <Image
-        src={image.src as string}
-        quality={process.env.IMAGE_QUALITY ? parseInt(process.env.IMAGE_QUALITY) : undefined}
+        src={image.src}
+        className="object-cover max-w-full max-h-[500px]"
+        quality={process.env.IMAGE_QUALITY ? parseInt(process.env.IMAGE_QUALITY) : 100}
         width={image.width}
         height={image.height}
-        alt={image.title as string}
+        alt={image.title}
       />
     </div>
   );
