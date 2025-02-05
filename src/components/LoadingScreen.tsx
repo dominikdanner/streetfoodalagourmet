@@ -1,10 +1,10 @@
 import { FC, Fragment } from "react"
 
-interface LoadingScreenProps {
+interface LoadingScreen {
     enabled: boolean
 }
 
-export const LoadingScreen: FC<LoadingScreenProps> = ({ enabled}) => {
+export const LoadingScreen: FC<LoadingScreen> = ({ enabled }) => {
     return (
         <Fragment>
             {enabled ? (

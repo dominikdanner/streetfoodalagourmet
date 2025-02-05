@@ -69,7 +69,6 @@ const TeamPictureSection = () => {
             name={"Dominik Danner"}
             role={"Mitglied"}
           ></TeamMemberCard>
-          <TeamMemberCard name={"Peter"} role={"Mitglied"}></TeamMemberCard>
         </div>
       </div>
     </div>

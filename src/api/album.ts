@@ -8,6 +8,7 @@ export interface Album {
   description: string;
   location: string;
   date: string;
+  folder: string;
 }
 
 export const getAllAlbums = async (): Promise<Album[]> => {
@@ -34,19 +35,6 @@ export interface DirectusFolder {
   album_id: string;
   folder_id: string;
 }
-
-export const getAlbumFolder = async (
-  albumId: String
-): Promise<DirectusFolder> => {
-  const response = await fetch(
-    SERVER_URL + "/items/collection?filter[album_id][_eq]=" + albumId,
-    {
-      mode: "cors",
-    }
-  );
-
-  return (await response.json()).data[0];
-};
 
 export interface DirectusImage {
   id: string;
