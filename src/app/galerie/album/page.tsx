@@ -2,11 +2,11 @@
 import Header from "@/components/Header";
 import { Headline } from "@/components/Headline";
 import { useSearchParams } from "next/navigation";
-import React, { FC, Fragment, useContext, useEffect, useReducer, useState } from "react";
+import React, { FC, Fragment, useContext, useReducer, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { useQuery } from "@tanstack/react-query";
-import { Album, DirectusImage, getAlbum, getAllAlbumImages } from "@/api/album";
+import { Album, DirectusImage, getAlbum } from "@/api/album";
 import { useGenerateGrid, useWindowSize } from "@/util/Hooks";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import {

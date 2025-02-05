@@ -8,7 +8,6 @@ import GaleriePhoto1 from "../../public/GaleriePreview/Preview_1.jpg";
 import GaleriePhoto2 from "../../public/GaleriePreview/Preview_2.jpg";
 import GaleriePhoto3 from "../../public/GaleriePreview/Preview_3.jpg";
 import GaleriePhoto4 from "../../public/GaleriePreview/Preview_4.jpg";
-import OnionSVG from "../../public/Onion.svg";
 import GarlicSVG from "../../public/Garlic.svg";
 import KrautSVG from "../../public/Kraut.svg";
 import Kraut2SVG from "../../public/Kraut2.svg";

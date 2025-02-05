@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Header from "../../components/Header";
-import { Headline, InvertedHeadline } from "@/components/Headline";
+import { Headline } from "@/components/Headline";
 import Footer from "@/components/Footer";
-import { Button, InvertedButton } from "@/components/Buttons";
+import { Button } from "@/components/Buttons";
 
 export default function Contact() {
   return (
