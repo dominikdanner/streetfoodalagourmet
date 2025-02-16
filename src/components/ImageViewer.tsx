@@ -1,13 +1,7 @@
 import { Album, DirectusImage, getAllAlbumImages } from "@/api/album";
 import { useGenerateGrid, useWindowSize } from "@/util/Hooks";
 import { useQuery } from "@tanstack/react-query";
-import {
-  Dispatch,
-  FC,
-  Fragment,
-  SetStateAction,
-  useContext,
-} from "react";
+import { Dispatch, FC, Fragment, SetStateAction, useContext } from "react";
 import { Button, InvertedButton } from "./Buttons";
 import Image from "next/image";
 import { ArrowLeftIcon, ArrowRightIcon } from "./Icons";
@@ -28,7 +22,7 @@ export type ImageViewerState = {
 };
 
 interface ImageViewerProps {
-  album: Album
+  album: Album;
 }
 
 export const ImageViewer: FC<ImageViewerProps> = ({ album }) => {
@@ -76,6 +70,11 @@ export const ImageViewer: FC<ImageViewerProps> = ({ album }) => {
                 <Image
                   className="object-contain h-full max-w-full py-0 lg:py-5"
                   src={imageGrid[column][row].src}
+                  quality={
+                    process.env.IMAGE_QUALITY
+                      ? parseInt(process.env.IMAGE_QUALITY)
+                      : 100
+                  }
                   width={imageGrid[column][row].width}
                   height={imageGrid[column][row].height}
                   alt={imageGrid[column][row].title}
@@ -102,27 +101,32 @@ export const ImageViewer: FC<ImageViewerProps> = ({ album }) => {
  * Increments a two dimensional index by one
  * It doesn't allow the index to go lower than [0, 0] and above the size of the grid
  * Therefore it prevents index out of bound errors
-*/
-const decrementIndex = (
-  index: ImageIndex,
-  rowLength: number
-):ImageIndex => {
+ */
+const decrementIndex = (index: ImageIndex, rowLength: number): ImageIndex => {
   const [col, row] = index;
-  return row === 0 ? (col === 0 ? [0, 0] : [col - 1, rowLength - 1]) : [col, row - 1];
+  return row === 0
+    ? col === 0
+      ? [0, 0]
+      : [col - 1, rowLength - 1]
+    : [col, row - 1];
 };
 
 /**
  * Increments a two dimensional index by one
  * It doesn't allow the index to go lower than [0, 0] and above the size of the grid
  * Therefore it prevents index out of bound errors
-*/
+ */
 const incrementIndex = (
   index: ImageIndex,
   rowLength: number,
   colLength: number
 ): ImageIndex => {
   const [col, row] = index;
-  return row === rowLength - 1 ? (col === colLength - 1 ? [col, row] : [col + 1, 0]) : [col, row + 1];
+  return row === rowLength - 1
+    ? col === colLength - 1
+      ? [col, row]
+      : [col + 1, 0]
+    : [col, row + 1];
 };
 
 type ImageGridAction = {
@@ -132,7 +136,7 @@ type ImageGridAction = {
 };
 
 /**
- * Represents state change of the when user clicks next image or previous image 
+ * Represents state change of the when user clicks next image or previous image
  * Insures that the index is always within the bounds of the grid
  */
 export const imageIndexReducer = (
@@ -147,10 +151,7 @@ export const imageIndexReducer = (
         action.grid!.length
       );
     case "previous":
-      return decrementIndex(
-        state,
-        action.grid![state[0]].length
-      );
+      return decrementIndex(state, action.grid![state[0]].length);
     case "set_index":
       if (action.index) {
         return action.index;

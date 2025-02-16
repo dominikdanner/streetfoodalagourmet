@@ -16,7 +16,7 @@ import {
   ImageViewerContext,
   ImageViewerState,
 } from "@/components/ImageViewer";
-import { imagesQueryOptions } from "@/api/queries";
+import { albumQueryOptions, imagesQueryOptions } from "@/api/queries";
 
 // Top Level Component of album page
 export default function AlbumView() {
@@ -26,14 +26,9 @@ export default function AlbumView() {
     currentImageIndex: useReducer(imageIndexReducer, [0, 0]),
   };
 
-  // Query album meta data
+  // Fetch album meta data
   const id = useSearchParams().get("id");
-  const { data: album } = useQuery({
-    queryKey: ["album"],
-    queryFn: () => {
-      return getAlbum(id!);
-    },
-  });
+  const { data: album } = useQuery(albumQueryOptions(id!));
 
   return (
     <ImageViewerContext.Provider value={imageViewerState}>
